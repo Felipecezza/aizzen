@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 98%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 220 10% 60%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --border: 216 8% 12%;
+    --input: 214.3 31.8% 91.4%;
+ 
+    --primary: 174 76% 52%;
+    --primary-foreground: 175 3% 12%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 170 99% 37%;
+ 
+    --radius: 0.75rem;
+  }
+ 
+  .dark {
+    --background: 240 6% 7%;
+    --foreground: 210 40% 98%;
+ 
+    --muted: 217 10% 20%;
+    --muted-foreground: 220 10% 60%;
+ 
+    --popover: 222 16% 10%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --card: 222 16% 12%;
+    --card-foreground: 210 40% 98%;
+ 
+    --border: 216 16% 18%;
+    --input: 217.2 32.6% 17.5%;
+ 
+    --primary: 174 76% 52%;
+    --primary-foreground: 175 3% 12%;
+ 
+    --secondary: 217 10% 25%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --accent: 217 10% 25%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+ 
+    --ring: 170 99% 37%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border font-sans;
+  }
+  body {
+    @apply bg-[#0a0a0a] text-foreground;
+  }
+  
+  /* Standardized typography */
+  h1 {
+    @apply text-2xl font-semibold text-white;
+  }
+  
+  h2 {
+    @apply text-xl font-medium text-white;
+  }
+  
+  h3 {
+    @apply text-lg font-medium text-white;
+  }
+  
+  h4 {
+    @apply text-base font-medium text-white;
+  }
+  
+  p {
+    @apply text-sm text-zinc-400;
+  }
+  
+  .text-title {
+    @apply text-2xl font-semibold text-white;
+  }
+  
+  .text-subtitle {
+    @apply text-xl font-medium text-white;
+  }
+  
+  .text-heading {
+    @apply text-lg font-medium text-white;
+  }
+  
+  .text-subheading {
+    @apply text-base font-medium text-white;
+  }
+  
+  .text-body {
+    @apply text-sm text-zinc-400;
+  }
+  
+  .text-body-strong {
+    @apply text-sm font-medium text-white;
+  }
+  
+  .text-caption {
+    @apply text-xs text-zinc-400;
+  }
+  
+  .text-label {
+    @apply text-sm font-medium text-white;
+  }
+  
+  /* Button text should always be consistent */
+  button:not(.unstyled) {
+    @apply text-sm font-medium;
+  }
+}
+
+/* Adicionando classes customizadas baseadas no sistema de cores do Horizon.Gen */
+@layer components {
+  /* Backgrounds */
+  .bg-dark {
+    @apply bg-[#0a0a0a];
+  }
+  
+  .bg-card {
+    @apply bg-dark-700 border border-zinc-800;
+  }
+  
+  .bg-sidebar {
+    @apply bg-[#0a0a0a] border-r border-[#191a1a];
+  }
+  
+  /* Menu styling */
+  .menu-item {
+    @apply flex cursor-pointer items-center space-x-3 rounded-md p-2.5 text-[#e2e2e2] transition-all duration-200;
+  }
+  
+  .menu-item:hover {
+    @apply bg-dark-700 text-primary;
+  }
+  
+  .menu-item.active {
+    @apply bg-dark-700 text-primary;
+  }
+  
+  /* Botões */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-black font-medium;
+  }
+  
+  /* Status de texto */
+  .text-success {
+    @apply text-success-DEFAULT;
+  }
+  
+  .text-danger {
+    @apply text-danger-DEFAULT;
+  }
+  
+  .text-warning {
+    @apply text-warning-DEFAULT;
+  }
+  
+  .text-info {
+    @apply text-info-DEFAULT;
+  }
+  
+  .text-secondary {
+    @apply text-muted-foreground;
+  }
+  
+  /* Icon colors */
+  .icon-primary {
+    @apply text-primary;
+  }
+  
+  .icon-success {
+    @apply text-success-DEFAULT;
+  }
+  
+  .icon-danger {
+    @apply text-danger-DEFAULT;
+  }
+  
+  .icon-warning {
+    @apply text-warning-DEFAULT;
+  }
+  
+  .icon-info {
+    @apply text-info-DEFAULT;
+  }
+  
+  .icon-muted {
+    @apply text-muted-foreground;
+  }
+  
+  /* Bordas e dividers */
+  .border-dark {
+    @apply border-zinc-800;
+  }
+  
+  .border-light {
+    @apply border-zinc-700;
+  }
+  
+  /* Cores de fundo para estados */
+  .bg-success-light {
+    @apply bg-success-background text-success-DEFAULT;
+  }
+  
+  .bg-warning-light {
+    @apply bg-warning-background text-warning-DEFAULT;
+  }
+  
+  .bg-danger-light {
+    @apply bg-danger-background text-danger-DEFAULT;
+  }
+  
+  .bg-info-light {
+    @apply bg-info-background text-info-DEFAULT;
+  }
+  
+  /* Estilos para cards */
+  .card {
+    @apply bg-dark-700 rounded-lg border border-zinc-800;
+  }
+  
+  .card-dark {
+    @apply bg-dark-700 rounded-lg border border-zinc-800;
+  }
+  
+  /* Estilos para inputs */
+  .input-dark {
+    @apply bg-dark-700 border-zinc-700 text-white h-12 px-4 py-3 focus:border-primary focus:ring-0;
+  }
+
+  /* Status badges */
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-badge-success {
+    @apply bg-success-DEFAULT/20 text-success-DEFAULT;
+  }
+  
+  .status-badge-warning {
+    @apply bg-warning-DEFAULT/20 text-warning-DEFAULT;
+  }
+  
+  .status-badge-danger {
+    @apply bg-danger-DEFAULT/20 text-danger-DEFAULT;
+  }
+  
+  .status-badge-info {
+    @apply bg-info-DEFAULT/20 text-info-DEFAULT;
+  }
+  
+  /* Estilos específicos do Horizon */
+  .sidebar-menu-item {
+    @apply flex items-center gap-3 px-4 py-2.5 text-[#e2e2e2] hover:bg-gradient-to-b hover:from-[#212222] hover:to-[#161616] hover:text-primary rounded transition-colors;
+  }
+  
+  .sidebar-menu-item.active {
+    @apply text-primary bg-gradient-to-b from-[#212222] to-[#161616];
+  }
+  
+  .period-tab {
+    @apply px-4 py-2 text-[#e2e2e2] hover:text-[#f8f8f8] rounded-md transition-colors;
+  }
+  
+  .period-tab.active {
+    @apply bg-primary text-black font-medium;
+  }
+  
+  .metric-value {
+    @apply text-2xl font-semibold mt-2;
+  }
+  
+  .metric-change {
+    @apply text-xs ml-2;
+  }
+  
+  .metric-change.positive {
+    @apply text-success-DEFAULT;
+  }
+  
+  .metric-change.negative {
+    @apply text-danger-DEFAULT;
+  }
+  
+  /* Gradient background utility class */
+  .bg-horizon-gradient {
+    @apply bg-dark-700;
+  }
+  
+  /* Form elements */
+  input, select, textarea {
+    @apply bg-dark-700 border-zinc-700 text-white h-12 px-4 py-3 rounded-md focus:border-primary focus:ring-0;
+  }
+  
+  /* Button styling */
+  button:not(.unstyled) {
+    @apply h-12 px-5 py-3 rounded-md transition-colors;
+  }
+  
+  /* Form section styling */
+  .form-section {
+    @apply rounded-lg bg-dark-700 p-6 border border-zinc-800;
+  }
+  
+  .form-field {
+    @apply space-y-2;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-white;
+  }
+  
+  .form-input {
+    @apply bg-dark-700 border-zinc-700 text-white focus-visible:border-primary;
+  }
+}

@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  aizzen-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aizzen-app:latest
+    container_name: aizzen-app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+      # Pode adicionar variáveis de ambiente aqui, como URLs de API
+      # - VITE_SUPABASE_URL=https://supabaseurl.com
+      # - VITE_SUPABASE_KEY=chave-publica-supabase
+    networks:
+      - aizzen-network
+
+networks:
+  aizzen-network:
+    driver: bridge 
