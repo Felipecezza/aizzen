@@ -1,3 +1,0 @@
-project_id = "vtcchttcvmaijvjjcxpu"
-[functions.universal-webhook]
-verify_jwt = false
